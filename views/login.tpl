@@ -1,4 +1,4 @@
-{% extends './base/admin_layout.tpl' %}
+{% extends './base/layout.tpl' %}
 {% block title %} {{ name }} {% endblock %}
 
 {% block header %}

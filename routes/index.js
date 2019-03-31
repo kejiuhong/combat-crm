@@ -13,27 +13,27 @@ router.get('/login', function(req, res, next) {
 
 /* GET clueList page. */
 router.get('/clueList', function(req, res, next) {
-  res.render('clueList', {name:'clueList'});
+  res.render('clueList', {name:'线索管理'});
 });
 
 /* GET clueTrack page. */
 router.get('/clueTrack', function(req, res, next) {
-  res.render('clueTrack', {name:'clueTrack'});
+  res.render('clueTrack', {name:'跟踪线索', path:'返回跟踪列表', username:'周杰伦'});
 });
 
 /* GET newUser page. */
 router.get('/newUser', function(req, res, next) {
-  res.render('newUser', {name:'newUser'});
+  res.render('newUser', {name:'用户新建', path:'返回用户列表'});
 });
 
 /* GET userEdite page. */
 router.get('/userEdite', function(req, res, next) {
-  res.render('userEdite', {name:'userEdite'});
+  res.render('userEdite', {name:'编辑人员', path:'返回用户列表'});
 });
 
 /* GET userList page. */
 router.get('/userList', function(req, res, next) {
-  res.render('userList', {name:'userList'});
+  res.render('userList', {name:'人员管理', path:'新增人员'});
 });
 
 module.exports = router;

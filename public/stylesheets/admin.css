@@ -1,0 +1,157 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #a5b7bf47;
+}
+a{
+  cursor:pointer;
+}
+.wrapper {
+  background: #a5b7bf47;
+  padding-bottom: .6rem;
+}
+/*  导航样式 */
+.nav {
+  position:relative;
+  background:#24211c;
+  color:#fff;
+}
+.nav-logo{
+  display:inline-block;
+  width: 20%;
+  height:1rem;
+  float:left;
+  line-height: 1rem;
+}
+.logo {
+  width: 1rem;
+  height: 1rem;
+}
+.nav-text{
+  display:inline-block;
+  width:70%;
+  height: 1rem;
+  line-height: 1rem;
+  text-align: center;
+  font-size: .36rem;
+}
+/* pc端右侧用户名样式 */
+.nav-user{
+  float:right;
+  height:1rem;
+  line-height:1rem;
+  font-size:.28rem;
+}
+/*删除移动端 右侧下拉倒航*/
+.navbar-inverse .navbar-toggle{
+  border:0px;
+}
+/* 移动端下拉导航样式 */
+.nav-botton{
+  float:right;
+}
+.navbar-toggle{
+  margin-right:0;
+  z-index:222;
+}
+.nav-botton-menu{
+  position:absolute;
+  top:.82rem;
+  right:-.3rem;
+  padding:0;
+  background:#24211c;
+  display:none;
+}
+.nav-botton-menu li {
+  width: 1.5rem;
+  padding:.02rem;
+  text-align: center;
+  line-height: .46rem;
+  font-size: .28rem;
+}
+/* 导航部分 end */
+
+
+
+/*  主题内容部分  */
+
+.container{
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  min-height: 10rem;
+  margin-left:0;
+  margin-right:0;
+}
+/* 侧边栏 */
+.sidebar{
+  flex: 1;
+  box-sizing:border-box;
+  width: 4.5rem;
+  height: 100%;
+  padding-left: .4rem;
+  background:#fff;
+}
+.sidebar li {
+  width:100%;
+  height: 1rem;
+  line-height: 1rem;
+  color:#6297a9;
+  cursor:pointer;
+}
+/* 侧边栏 end */
+
+/* 中间内容部分 */
+.main{
+  min-height: 100%;
+  margin-left: .2rem;
+  background: #fff;
+}
+
+.main-header,.table{
+  width:94%;
+  height: 1rem;
+  margin: 0 auto;
+  line-height: 1rem
+}
+.main-header-botton{
+  padding-right:0;
+  font-size:.24rem;
+  text-align:right;
+  text-decoration-line:underline;
+}
+
+
+/* 中间内容主体 */
+.main-content{
+  padding-top:.4rem;
+}
+.form-horizontal .form-group{
+  margin-left:1rem;
+}
+.form-name{
+  min-width:1rem;
+  float:left;
+}
+.form-control,.form-btn{
+  width:40%;
+}
+
+
+/* 跟踪页面 */
+.clue-text{
+  margin-left:.1rem;
+}
+.form-textarea{
+  border:1px solid #ccc;
+  border-radius: .08rem;
+  height: 2rem;
+}
+.clue-show-list{
+  margin-bottom: .4rem;
+  line-height: .4rem;
+}
+.even{
+  background:#a5b7bf47;
+}
+/* 中间内容部分 end */
+/*  主题内容部分 end */

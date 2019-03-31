@@ -4,25 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %} 首页 {% endblock %} - layout</title>
+  <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/border.css">
+  <link rel="stylesheet" href="/stylesheets/reset.css">
+  <title>{% block title %} 首页 {% endblock %}</title>
 </head>
 <body>
-<header style="text-align:center;">
-    {% block header %} header {% endblock %}
-</header>
-
-<article style="text-align:center;">
-  {% block main %}  {% endblock %} 
-</article>
-
-<footer style="text-align:center;">
-  <hr/>
-  <div style="text-align:center;">
-      Footer  - by postbird
+  <div class="wrapper">
+    
   </div>
-{% block footer %}  {% endblock %}
-</footer>
-
+  <!-- js文件引用 -->
+<script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="/javascript/bootstrap.min.js" type="text/javascript"></script>
 </body>
-
+  
 </html>

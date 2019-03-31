@@ -1,14 +1,33 @@
+{# 用户编辑页面 #}
+
 {% extends './base/admin_layout.tpl' %}
+{% import  './common/form.tpl' as forms %}
+
 {% block title %} {{ name }} {% endblock %}
 
+
 {% block header %}
-  <h1>{{ name }} header</h1>
+  {{ forms.formHeader('人员管理', '返回用户列表') }}
 {% endblock %}
 
 
-{% block main %}
-  <h1>页面名称：{{ name }}</h1>
+{# 表单部分内容 #}
+{% block section %}
+  {{ forms.formItem('姓名') }}
+  {{ forms.formItem('电话', type='tel') }}
+  {{ forms.formItem('密码', type='password') }}
+  {# 下拉列表 #}
+  <div class="form-group">
+    {{ forms.formLabel('角色') }}
+      {{ forms.formSelect(items=[{name:'管理员', value:'username'}, {name:'销售人员', value:'saleman'}, {name:'客户', value:'customer'}]) }}
+  </div>
+  {{ forms.formBtn('保存') }}
+
+
 {% endblock %}
+{# 表单部分内容 end #}
+
+
 
 {% block footer %}
   <p>{{ name }} footer</p>
