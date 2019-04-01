@@ -1,8 +1,10 @@
+{# 登录页面 #}
+
 {% extends './base/layout.tpl' %}
 {% block title %} {{ name }} {% endblock %}
 
-{% block header %}
-  <h1>{{ name }} header</h1>
+{% block bgImg %}
+  <img class="login-img" src="../image/car.jpg"/>
 {% endblock %}
 
 

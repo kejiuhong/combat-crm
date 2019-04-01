@@ -7,7 +7,7 @@
 
 
 {% block header %}
-  {{ forms.formHeader('人员管理', '返回用户列表') }}
+  {{ forms.formHeader(name, path) }}
 {% endblock %}
 
 

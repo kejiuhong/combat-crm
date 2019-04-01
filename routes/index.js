@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
-  res.render('landing', { name:'landing'});
+  res.render('landing', { name:'落地页'});
 });
 
 /* GET login page. */

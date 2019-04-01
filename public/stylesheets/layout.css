@@ -1,0 +1,89 @@
+body {
+  height:100%;
+  font: .28rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #a5b7bf47;
+}
+a{
+  cursor:pointer;
+}
+
+.layout-container{
+  overflow:hidden;
+  top: 1.6rem;
+  width:10rem;
+  height:16rem;
+  border-radius:.1rem;
+  box-shadow: 1px 1px 15px 2px #908888;
+  background:#fff;
+}
+
+.col-md-4{
+  padding:0;
+}
+
+.banner{
+  width:100%;
+  height:4rem;
+}
+.banner img{
+  width:100%;
+  height:4rem;
+}
+
+.input-form{
+  margin:0 auto;
+  margin-top:3rem;
+  text-align:center;
+  z-index:222;
+}
+.title{
+  font-size:.32rem;
+  font-weight:bold;
+  margin-bottom:.4rem;
+}
+.form{
+
+}
+.layout-input{
+  width:60%;
+  margin:0 auto;
+  margin-top:.4rem;
+  font-weight:400;
+}
+
+.btn-primary{
+  margin-top:.4rem;
+  width:60%;
+}
+
+/* 登录页 */
+.login-img{
+  width:auto;
+  height:100%;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .form-horizontal .form-group{
+    margin-left:0;
+  }
+  .form-control,.layout-btn{
+    width:75%;
+  }
+  .main {
+    margin-left:0;
+   }
+   .layout-container{
+      position:static;
+      top:0;
+   }
+   .input-form{
+    position:absolute;
+    left:0;
+    right:0;
+   }
+   .title{
+      font-size:.3rem;
+   }
+}

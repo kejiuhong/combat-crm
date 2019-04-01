@@ -16,8 +16,17 @@
 {% macro formItem(name, value='', type='text') %}
   <div class="form-group formItem">
     <label class="form-name">{{ name }}:</label>
-    <input class="form-control" type={{ type }} placehold={{ name }}">
+    <input class="form-control" type={{ type }} placeholder={{ name }}/>
   </div>
+{% endmacro %}
+
+
+{# 输入框 #}
+{% macro formInput(name, value='', type='text') %}
+  <div class="form-group formItem">
+    <input class="form-control layout-input" type={{ type }} placeholder={{ name }} />
+  </div>
+
 {% endmacro %}
 
 
@@ -34,9 +43,9 @@
 
 
 {# 按钮 #}
-{% macro formBtn(text, type='submit') %}
+{% macro formBtn(text, type='submit', class='') %}
 <div class="form-group">
-  <button type={{ type }} class="btn btn-primary">{{ text }}</button
+  <button type={{ type }} class="btn btn-primary {{class}}">{{ text }}</button
 </div>
 {% endmacro %}
 

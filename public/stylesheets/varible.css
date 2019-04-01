@@ -1,19 +1,16 @@
 @media screen and (max-width: 768px) {
   /* form表单内 当屏幕宽度小于768px时发生变化 */
-  .form-control {
+  .form-control,.layout-btn{
     width:75%;
   }
   .form-horizontal .form-group{
-    margin-left:.2rem;
+    margin-left:.1rem;
   }
   .btn-primary,.form-textarea{ /* 按钮宽度 */
     width:92%;
   }
- /* .th-break{
-    width: 1.5rem;
-    display: inline-block;
-    overflow: hidden;
-    word-break: break-all;
-    text-align: center;
-  }*/
+   body,.wrapper{
+    background: #fff;
+   }
+   
 }
