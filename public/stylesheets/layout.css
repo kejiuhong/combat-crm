@@ -1,7 +1,6 @@
 body {
   height:100%;
   font: .28rem "Lucida Grande", Helvetica, Arial, sans-serif;
-  background: #a5b7bf47;
 }
 a{
   cursor:pointer;
@@ -27,12 +26,11 @@ a{
 }
 .banner img{
   width:100%;
-  height:4rem;
 }
 
 .input-form{
   margin:0 auto;
-  margin-top:3rem;
+  padding-top:3rem;
   text-align:center;
   z-index:222;
 }
@@ -57,12 +55,32 @@ a{
 }
 
 /* 登录页 */
+.login-container{
+  height:100%;
+  background:#000;
+}
 .login-img{
-  width:auto;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.form-content{
+  width: 90%;
+  margin: 0 auto;
+  padding:.1rem .2rem .4rem .2rem;
+  background:#fff;
+  border-radius:.1rem;
+}
+.layout-logo{
+  width:100%;
+  height:1rem;
+  text-align:left;
+}
+.layout-logo img{
   height:100%;
 }
-
-
 
 @media screen and (max-width: 768px) {
   .form-horizontal .form-group{
@@ -70,6 +88,13 @@ a{
   }
   .form-control,.layout-btn{
     width:75%;
+  }
+  .wrapper{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
   }
   .main {
     margin-left:0;
@@ -85,5 +110,8 @@ a{
    }
    .title{
       font-size:.3rem;
+   }
+   .form-content{
+      margin-top:2rem;
    }
 }

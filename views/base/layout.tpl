@@ -13,15 +13,12 @@
 <body>
   <div class="wrapper row">
     <div class="layout-container col-md-4 col-md-offset-4 col-xs-12">
-      {% block bgImg %}{% endblock %}
-      <header class="banner">
         {% block header %}
         {% endblock %}
-      </header>
-      <article class="input-form">
-        {% block main %}
-        {% endblock %}
-      </article>
+        <!-- article -->
+          {% block main %}
+          {% endblock %}
+          <!-- article end -->
     </div>
   </div>
   <!-- js文件引用 -->
