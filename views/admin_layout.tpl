@@ -59,7 +59,7 @@
         {% endblock %}
       </div>
       <section class="main-content col-md-6 col-xs-12">
-        <form class="form-horizontal">
+        <form class="form-horizontal" >
           {% block section %}
           {% endblock %}
         </form>

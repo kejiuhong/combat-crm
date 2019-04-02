@@ -21,16 +21,19 @@ const Page={
     // alert(role);
   }
 
-  $ajax({
-    url: '/api/user',
+  $.ajax({
     type: 'POST',
+    url: '',
     data: {name,tel,password,role},
-    success: function(res){
+    beforeSend: function(){
+      $('.save').attr('disabled',true);//禁用加载按钮
+    }
+    success: function(data){
       // console.log(res);
-      if(res.code === 200){
+      if(data.code === 200){
         alert('保存成功')
       }else{
-        alert(res.message);
+        alert(data.message);
       }
     },
     error: function(err){

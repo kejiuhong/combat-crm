@@ -32,3 +32,7 @@
 {% block footer %}
   <p>{{ name }} footer</p>
 {% endblock %}
+
+{% block script %}
+<script src='/javascript/user.js'></script>
+{% endblock %}
