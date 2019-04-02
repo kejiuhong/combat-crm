@@ -1,6 +1,7 @@
 {# 用户列表页 #}
 
-{% extends './base/admin_layout.tpl' %}
+{% extends '../admin_layout.tpl' %}
+
 {% block title %} {{ name }} {% endblock %}
 
 {% block header %}

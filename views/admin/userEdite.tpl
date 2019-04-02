@@ -1,13 +1,13 @@
-{# 用户新建页面 #}
+{# 用户编辑页面 #}
 
-{% extends './base/admin_layout.tpl' %}
-{% import  './common/form.tpl' as forms %}
+{% extends '../admin_layout.tpl' %}
+{% import  '../common/form.tpl' as forms %}
 
 {% block title %} {{ name }} {% endblock %}
 
 
 {% block header %}
-  {{ forms.formHeader('人员管理', '返回用户列表') }}
+  {{ forms.formHeader(name, path) }}
 {% endblock %}
 
 

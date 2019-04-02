@@ -1,7 +1,7 @@
 {# 登录页面 #}
 
-{% extends './base/layout.tpl' %}
-{% import './common/form.tpl' as forms %}
+{% extends './../layout.tpl' %}
+{% import './../common/form.tpl' as forms %}
 
 
 {% block title %} {{ name }} {% endblock %}

@@ -1,7 +1,7 @@
 {# 着陆页 #}
 
 
-{% extends './base/layout.tpl' %}
+{% extends 'layout.tpl' %}
 {% import './common/form.tpl' as forms %}
 
 

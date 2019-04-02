@@ -3,37 +3,37 @@ var router = express.Router();
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
-  res.render('landing', { name:'落地页'});
+  res.render('index', { name:'落地页'});
 });
 
 /* GET login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login', {name:'login'});
+router.get('/admin/login', function(req, res, next) {
+  res.render('admin/login', {name:'login'});
 });
 
 /* GET clueList page. */
-router.get('/clueList', function(req, res, next) {
-  res.render('clueList', {name:'线索管理'});
+router.get('/admin/clueList', function(req, res, next) {
+  res.render('admin/clueList', {name:'线索管理'});
 });
 
 /* GET clueTrack page. */
-router.get('/clueTrack', function(req, res, next) {
-  res.render('clueTrack', {name:'跟踪线索', path:'返回跟踪列表', username:'周杰伦'});
+router.get('/admin/clueTrack', function(req, res, next) {
+  res.render('admin/clueTrack', {name:'跟踪线索', path:'返回跟踪列表', username:'周杰伦'});
 });
 
 /* GET newUser page. */
-router.get('/newUser', function(req, res, next) {
-  res.render('newUser', {name:'用户新建', path:'返回用户列表'});
+router.get('/admin/newUser', function(req, res, next) {
+  res.render('admin/newUser', {name:'用户新建', path:'返回用户列表'});
 });
 
 /* GET userEdite page. */
-router.get('/userEdite', function(req, res, next) {
-  res.render('userEdite', {name:'编辑人员', path:'返回用户列表'});
+router.get('/admin/userEdite', function(req, res, next) {
+  res.render('admin/userEdite', {name:'编辑人员', path:'返回用户列表'});
 });
 
 /* GET userList page. */
-router.get('/userList', function(req, res, next) {
-  res.render('userList', {name:'人员管理', path:'新增人员'});
+router.get('/admin/userList', function(req, res, next) {
+  res.render('admin/userList', {name:'人员管理', path:'新增人员'});
 });
 
 module.exports = router;

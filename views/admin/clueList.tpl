@@ -1,6 +1,6 @@
 {# 跟踪管理页 #}
 
-{% extends './base/admin_layout.tpl' %}
+{% extends './../admin_layout.tpl' %}
 
 
 {% block title %} {{ name }} {% endblock %}

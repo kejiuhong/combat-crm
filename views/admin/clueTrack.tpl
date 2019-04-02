@@ -1,7 +1,7 @@
 {# 线索记录页面 #}
 
-{% extends './base/admin_layout.tpl' %}
-{% import  './common/form.tpl' as forms %}
+{% extends '../admin_layout.tpl' %}
+{% import  '../common/form.tpl' as forms %}
 
 {% block title -%} {{ name }} {% endblock %}
 
