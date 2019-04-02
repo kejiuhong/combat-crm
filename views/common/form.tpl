@@ -13,18 +13,18 @@
 {% endmacro %}
 
 {# 表单 #}
-{% macro formItem(name, value='', type='text') %}
+{% macro formItem(name, value='', type='text',class='') %}
   <div class="form-group formItem">
     <label class="form-name">{{ name }}:</label>
-    <input class="form-control" type={{ type }} placeholder={{ name }}/>
+    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }}/>
   </div>
 {% endmacro %}
 
 
 {# 输入框 #}
-{% macro formInput(name, value='', type='text') %}
+{% macro formInput(name, value='', type='text',class='') %}
   <div class="form-group formItem">
-    <input class="form-control layout-input" type={{ type }} placeholder={{ name }} />
+    <input class="form-control layout-input {{ class }}" type={{ type }} placeholder={{ name }} />
   </div>
 
 {% endmacro %}
@@ -32,8 +32,8 @@
 
 
 {# 选择项 #}
-{% macro formSelect(items='') %}
-  <select class="btn btn-default form-btn">
+{% macro formSelect(items='', class='') %}
+  <select class="btn btn-default form-btn {{ class }}" value='选择'>
   {% for item in items %}
     <option value={{ item.value }}>{{ item.name }}</options>
   {% endfor %}
