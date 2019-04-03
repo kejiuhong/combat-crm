@@ -21,10 +21,6 @@ router.get('/admin/clueTrack', function(req, res, next) {
   res.render('admin/clueTrack', {name:'跟踪线索', path:'返回跟踪列表', username:'周杰伦'});
 });
 
-/* GET newUser page. */
-router.get('/admin/newUser', function(req, res, next) {
-  res.render('admin/newUser', {name:'用户新建', path:'返回用户列表'});
-});
 
 /* GET userEdite page. */
 router.get('/admin/userEdite', function(req, res, next) {

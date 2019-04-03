@@ -18,16 +18,18 @@ const Page = {
       alert('请填写完成内容后再提交！');
       return
     }
+
+    $.ajax({
+      url:'',
+      type:'POST',
+      data:{name,tel,time},
+      success:function(res){
+        console.log(res);
+      }
+    })
   }
     
-  $ajax({
-    url:'',
-    type:'POST',
-    data:{name,tel,time},
-    success:function(res){
-      console.log(res);
-    }
-  })
+ 
   
 }
 

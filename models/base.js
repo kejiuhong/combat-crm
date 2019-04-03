@@ -3,30 +3,35 @@
 const knex = require('./../config.js');
 
 
- class baseMysql {
+ class Base {
   constructor(props){
     this.table = props
   }
   
+  all(){
+    return knex(this.table).select()
+  }
+
   // 创建查询
   select(params){
     return knex(this.table).select().where(params)
   }
 
-  // 创建插入查询
+  // 创建插入/编辑
   insert(params){
-    return knex(this.table).insert(params);
+    return knex(this.table).insert(params)
   }
 
-  // 创建更新查询
+  // 创建更新列表
   update(id,params){
-    return knex(this.table).where('id','=',id ).update(params);
+    return knex(this.table).where('id','=',id ).update(params)
   }
 
 
- // 根据查询中指定的条件删除一行或多行
- del(id){
-  return knex(this.table).where('id', '=', id).del();
- }
+   // 根据查询中指定的条件删除一行或多行
+   del(id){
+    return knex(this.table).where('id', '=', id).del() 
+   }
+}
 
- module.exports = baseMysql;
+ module.exports = Base;

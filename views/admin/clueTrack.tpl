@@ -38,3 +38,7 @@
 </aside>
 {% endblock %}
 
+
+{% block script %}
+<script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>
+{% endblock %}

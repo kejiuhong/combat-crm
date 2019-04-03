@@ -73,9 +73,8 @@
   <!-- container end -->
 </div>
   <!-- js文件引用 -->
-<script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src="/javascript/bootstrap.min.js" type="text/javascript"></script>
 {% block script %}{% endblock %}
+<script src="/javascript/bootstrap.min.js" type="text/javascript"></script>
 </body>
 
 </html>

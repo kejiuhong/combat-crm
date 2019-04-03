@@ -19,27 +19,36 @@ const Page={
     }
     // console.log('ok');
     // alert(role);
-  }
+  
 
-  $.ajax({
-    type: 'POST',
-    url: '',
-    data: {name,tel,password,role},
-    beforeSend: function(){
-      $('.save').attr('disabled',true);//禁用加载按钮
-    }
-    success: function(data){
-      // console.log(res);
-      if(data.code === 200){
-        alert('保存成功')
-      }else{
-        alert(data.message);
+    $.ajax({
+      type: 'POST',
+      url: '/api/user',
+      data: {name,tel,password,role},
+
+      beforeSend: function(){
+        $('.save').attr('disabled', true);//禁用加载按钮
+      },
+
+      success: function(data){
+        console.log('js:',data);
+        if(data.code === 200){
+          alert('保存成功');
+          location.href='admin/userList';//回到列表页
+        }else{
+          alert(data.message);
+        }
+      },
+
+      error: function(err){
+        console.log('err:',err);
+      },
+      
+      complete: function(){
+        $('.save').attr('disabled', false);
       }
-    },
-    error: function(err){
-      alert(err);
-    }
-  })
+    })
+  }
 }
 
 Page.init();
