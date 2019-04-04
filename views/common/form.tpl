@@ -13,10 +13,10 @@
 {% endmacro %}
 
 {# 表单 #}
-{% macro formItem(name, value='', type='text',class='') %}
+{% macro formItem(name, value='', type='text',class='',txt='') %}
   <div class="form-group formItem">
     <label class="form-name">{{ name }}:</label>
-    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }}>
+    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }}>{{ txt }}
   </div>
 {% endmacro %}
 

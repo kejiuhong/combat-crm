@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-04-03 11:57:57
+Date: 2019-04-04 13:55:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,11 +20,12 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `clue`;
 CREATE TABLE `clue` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `tel` varchar(22) DEFAULT NULL,
   `source` varchar(255) DEFAULT NULL,
-  `time` date DEFAULT NULL
+  `time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -36,9 +37,10 @@ CREATE TABLE `clue` (
 -- ----------------------------
 DROP TABLE IF EXISTS `note`;
 CREATE TABLE `note` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) DEFAULT NULL,
-  `time` date DEFAULT NULL
+  `time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -50,11 +52,13 @@ CREATE TABLE `note` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   `tel` varchar(22) DEFAULT NULL,
   `password` varchar(9) DEFAULT NULL,
-  `role` varchar(255) DEFAULT NULL
+  `role` varchar(255) DEFAULT NULL,
+  `time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------

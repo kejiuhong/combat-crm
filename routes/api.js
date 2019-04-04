@@ -6,5 +6,6 @@ var userController = require('./../controllers/user.js')
 
 // 用户新建页面
 router.post('/user', userController.insert);
+// router.post('/userEdite:id', userController.edite);
 
 module.exports = router;

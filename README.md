@@ -9,3 +9,24 @@
 <p>
   样式借助了bootstrap框架
 </p>
+
+<p>
+  页面分别是：
+  <ul>
+    <li>着陆页：index</li>
+    <li>登录页面：admin/login</li>
+    <li>人员管理：admin/userList</li>
+    <li>人员新增：admin/userCreate</li>
+    <li>人员编辑：admin/userEdit</li>
+    <li>线索管理：admin/clueList</li>
+    <li>线索跟踪：admin/clueClue</li>
+  </ul>
+</p>
+
+<h1>数据库</h1>
+<p>
+  根据图片设计分析，人员管理列表中会显示时间像，user数据库里需要添加time
+</p>
+<p>
+  express API 'req.params'只需将a标签的href写为path：id便非常方便的让后台取到了id
+</p>

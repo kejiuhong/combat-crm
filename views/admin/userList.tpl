@@ -2,18 +2,17 @@
 
 {% extends '../admin_layout.tpl' %}
 
-{% block title %} {{ name }} {% endblock %}
+{% block title %} 人员管理 {% endblock %}
 
 {% block header %}
-  <span class="col-md-10 col-xs-6">{{ name }}</span>
-  <a href="" class="main-header-botton col-md-2 col-xs-6">{{ path }}>>></a>
+  <span class="col-md-10 col-xs-6">人员管理</span>
+  <a href="/admin/userCreate" class="main-header-botton col-md-2 col-xs-6">新增人员>>></a>
 {% endblock %}
 
 
 {% block main %}
   {% set headV = ['姓名', '电话', '角色', '创建时间', '操作'] %}
 
-  {% set bodyV = [{name:'周杰伦',tel:'12345678912', character:'管理员', time:'2019/03/07 11:19:07', control:'跟踪'}, {name:'周杰伦',tel:'12345678912', character:'销售', time:'2019/03/07 11:19:07', control:'跟踪'}, {name:'周杰伦',tel:'12345678912', character:'销售', time:'2019/03/07 11:19:07', control:'跟踪'}] %}
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -24,14 +23,14 @@
       </tr>
     </thead>
     <tbody>
-      {% for item in bodyV %}
+      {% for item in users %}
       <tr>
         <th>{{ item.name }}</th>
         <th>{{ item.tel }}</th>
-        <th>{{ item.character }}</th>
+        <th>{{ item.role }}</th>
         <th>{{ item.time }}</th>
         <th>
-          <a class="main-header-botton" href="#">{{ item.control }}</a>
+          <a class="listBtn main-header-botton" href="/admin/userEdite:{{ item.id }}">编辑</a>
         </th>
       </tr>
       {% endfor %}
@@ -45,5 +44,4 @@
 
 {% block script %}
 <script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src='/javascript/user.js'></script>
 {% endblock %}

@@ -8,6 +8,7 @@ const Page={
   },
 
   handleSubmit: function(){
+    console.log('ok')
     let name = $('.username').val();
     let tel = $('.tel').val();
     let password = $('.password').val();
@@ -29,12 +30,12 @@ const Page={
       beforeSend: function(){
         $('.save').attr('disabled', true);//禁用加载按钮
       },
-
+      
       success: function(data){
         console.log('js:',data);
         if(data.code === 200){
           alert('保存成功');
-          location.href='admin/userList';//回到列表页
+          window.location.reload();//保存成功后刷新页面
         }else{
           alert(data.message);
         }

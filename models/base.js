@@ -8,11 +8,12 @@ const knex = require('./../config.js');
     this.table = props
   }
   
+  //选择全部
   all(){
     return knex(this.table).select()
   }
 
-  // 创建查询
+  // 查找相关项
   select(params){
     return knex(this.table).select().where(params)
   }
