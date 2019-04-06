@@ -9,17 +9,20 @@
 <p>
   样式借助了bootstrap框架
 </p>
+<p>
+  列表页使用了 unionAll API 进行了以管理置顶的排序
+</p>
 
 <p>
   页面分别是：
   <ul>
     <li>着陆页：index</li>
     <li>登录页面：admin/login</li>
-    <li>人员管理：admin/userList</li>
-    <li>人员新增：admin/userCreate</li>
-    <li>人员编辑：admin/userEdit</li>
-    <li>线索管理：admin/clueList</li>
-    <li>线索跟踪：admin/clueClue</li>
+    <li>人员管理：admin/user/list</li>
+    <li>人员新增：admin/user/create</li>
+    <li>人员编辑：admin/user/edit</li>
+    <li>线索管理：admin/clue/list</li>
+    <li>线索跟踪：admin/clue/track</li>
   </ul>
 </p>
 

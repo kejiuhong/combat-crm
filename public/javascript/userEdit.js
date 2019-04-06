@@ -8,7 +8,8 @@ const Page={
   },
 
   handleSubmit: function(){
-    console.log('ok');
+    // console.log('ok');
+    let id = $('.hidID').val();
     let name = $('.username').val();
     let tel = $('.tel').val();
     let password = $('.password').val();
@@ -24,13 +25,13 @@ const Page={
       return
     }
     // console.log('ok');
-    // alert(role);
+    // alert(id);
   
 
     $.ajax({
       type: 'POST',
-      url: '/api/user',
-      data: {name,tel,password,role},
+      url: '/api/user/edit/',
+      data: {id,name,tel,password,role},
 
       beforeSend: function(){
         $('.save').attr('disabled', true);//禁用加载按钮

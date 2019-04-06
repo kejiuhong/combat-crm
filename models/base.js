@@ -7,15 +7,23 @@ const knex = require('./../config.js');
   constructor(props){
     this.table = props
   }
-  
-  //选择全部
+
+
+  // 选择全部
   all(){
     return knex(this.table).select()
   }
+  
+  //选择全部并排序
+  sort(){
+    return knex.select('*').from(this.table).where('role','=','管理').unionAll(function(){
+      this.select('*').from('user').where('role','=','销售')
+    })  //如果角色为管理那么将会排在销售前面
+  }
 
   // 查找相关项
-  select(params){
-    return knex(this.table).select().where(params)
+  find(params){
+    return knex(this.table).where(params)
   }
 
   // 创建插入/编辑
@@ -25,7 +33,7 @@ const knex = require('./../config.js');
 
   // 创建更新列表
   update(id,params){
-    return knex(this.table).where('id','=',id ).update(params)
+    return knex(this.table).where('id','=',id).update(params)
   }
 
 

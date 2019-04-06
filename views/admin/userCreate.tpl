@@ -8,7 +8,7 @@
 
 {% block header %}
   <span class="col-md-10 col-xs-6">新增人员</span>
-  <a href="/admin/userList" class="main-header-botton col-md-2 col-xs-6">返回列表>>> </a>
+  <a href="/admin/user/list" class="main-header-botton col-md-2 col-xs-6">返回列表>>> </a>
 {% endblock %}
 
 
@@ -20,7 +20,7 @@
   {# 下拉列表 #}
   <div class="form-group">
     {{ forms.formLabel('角色') }}
-      {{ forms.formSelect(items=[{name:'管理员', value:'username'}, {name:'销售人员', value:'saleman'}, {name:'客户', value:'customer'}], class='role') }}
+      {{ forms.formSelect(items=[{name:'管理', value:'username'}, {name:'销售', value:'saleman'}], class='role') }}
   </div>
   {{ forms.formBtn('保存',class='save') }}
 

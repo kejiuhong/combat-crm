@@ -41,8 +41,16 @@
     <!-- 侧边栏 -->
     <div class="sidebar col-md-3 collapse navbar-collapse">
       <ul>
-        <li class="border-bottom">人员管理</li>
-        <li class="border-bottom">线索管理</li>
+        <li class="border-bottom">
+          <a href="/admin/user/list">
+            人员管理
+          </a>
+        </li>
+        <li class="border-bottom">
+          <a href="/admin/clue/list">
+            线索管理
+          </a>
+        </li>
       </ul>
     </div>
     <!-- 侧边栏 end -->

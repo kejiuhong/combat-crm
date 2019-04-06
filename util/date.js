@@ -12,7 +12,7 @@ const dateStyle = date => {
 
 const dateChange = n => {
   n = n.toString() //转化为字符串
-  return n[1] ? n : '0'+n //如果第二位数没有就在前面加上0
+  return n[1] ? n : ('0'+n) //如果第二位数没有就在前面加上0
 }
 
 module.exports = { dateStyle }

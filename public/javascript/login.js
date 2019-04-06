@@ -20,7 +20,7 @@ const Page = {
     }
 
     $.ajax({
-      url:'',
+      url:'/api/user.js',
       type:'POST',
       data:{name,tel,time},
       success:function(res){

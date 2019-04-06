@@ -6,7 +6,7 @@
 
 {% block header %}
   <span class="col-md-10 col-xs-6">人员管理</span>
-  <a href="/admin/userCreate" class="main-header-botton col-md-2 col-xs-6">新增人员>>></a>
+  <a href="/admin/user/create" class="main-header-botton col-md-2 col-xs-6">新增人员>>></a>
 {% endblock %}
 
 
@@ -30,7 +30,7 @@
         <th>{{ item.role }}</th>
         <th>{{ item.time }}</th>
         <th>
-          <a class="listBtn main-header-botton" href="/admin/userEdite:{{ item.id }}">编辑</a>
+          <a class="listBtn main-header-botton" href="/admin/user/edit/{{ item.id }}">编辑</a>
         </th>
       </tr>
       {% endfor %}

@@ -13,10 +13,10 @@
 {% endmacro %}
 
 {# 表单 #}
-{% macro formItem(name, value='', type='text',class='',txt='') %}
+{% macro formItem(name, value='', type='text', class='') %}
   <div class="form-group formItem">
     <label class="form-name">{{ name }}:</label>
-    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }}>{{ txt }}
+    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }} value={{ value }} maxlength={{ maxlength }}>
   </div>
 {% endmacro %}
 
@@ -35,7 +35,7 @@
 {% macro formSelect(items='', class='') %}
   <select class="btn btn-default form-btn {{ class }}" value='选择'>
   {% for item in items %}
-    <option value={{ item.value }}>{{ item.name }}</options>
+    <option value={{ item.value }} {% if user.role == item.name %}selected{% endif %}>{{ item.name }}</options>
   {% endfor %}
   </select>
 {% endmacro %}

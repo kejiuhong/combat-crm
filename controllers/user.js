@@ -18,12 +18,12 @@ const userController = {
       res.json ({ code:0, message:'内容未添加完全'})
       return
     }
-    console.log('req',req);
+    // console.log('req',req);
     try{
       const users = await User.insert({ 
         name, tel, password, role, time
       });
-      // console.log('users:',users);
+      console.log('users:',users);
       res.json({ 
         code: 200, 
         data: users
@@ -43,11 +43,9 @@ const userController = {
   // 显示在列表页
   show:async function(req,res,next){
     try{
-      const user = await User.all();
+      const user = await User.sort();
       // console.log('show:',users);
       res.locals.users = user.map((data) => {
-        // data.id = id
-        //data.role =  （data.role == 1） ? '销售':'管理'; //如果角色存在，那么就为管理员，如果不存在，就为销售
         data.time = dateStyle(data.time);
         return data;
         
@@ -70,24 +68,52 @@ const userController = {
     
     let id = req.params.id; 
     //req.params.id ：当路由为 path：id时 url为path/id便可获得id
-    // console.log('editeR:',id);
+    // console.log('editeR:',{id});
     try{
-      const user = await User.select(id); //在数据库查找id=接收值的行
-      console.log('editeU:',user);
-      
-      res.locals.user = user[0];
-      res.render('admin/userCreate',res.locals);
+      const users = await User.find({id}); //在数据库查找id=接收值的行
+      res.locals.user = users[0]; //users是一个数组，所以加上一个小标0
+      // console.log('editeU:',res.locals);      
+      res.render('admin/userEdit', res.locals);
     }catch(e){
-      console.log('editeE:',e);
+      // console.log('editeE:',e);
       res.locals.error = e;
       res.render('error',res.locals);
     }
   },
 
-  // 获得被点击标签列的信息
-  // update: async function(req,res,next){
-  //   let 
-  // }
+  //人员编辑后数据库信息做相应更新
+  update: async function(req,res,next){
+    // console.log(req);
+    let id = req.body.id;
+    let name = req.body.name;
+    let tel = req.body.tel;
+    let password = req.body.password;
+    let role = req.body.role;
+    let time = new Date();
+
+    if(!name || !tel || !password || !role){
+      res.json({
+        code: 0,
+        message: '内容不能为空！'
+      });
+      return 
+    }
+    // console.log('ids:', id);
+    try{
+      const users = await User.update(id, {name, tel, password, role, time});
+      // console.log('update:',users);
+      res.json({
+        code: 200,
+        data: users
+      })
+    }catch(e){
+      console.log('updateE:',e);
+      res.json({
+        code:0,
+        message:'内部错误！'
+      })
+    }
+  }
 
 }
 
