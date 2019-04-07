@@ -3,13 +3,14 @@
 {% extends './../admin_layout.tpl' %}
 
 
-{% block title %} {{ name }} {% endblock %}
+{% block title %} 跟踪列表 {% endblock %}
 
 {% block header %}
   <header class="main-header border-bottom row">
-    <span class="col-md-10 col-xs-6">{{ name }}</span>
+    <span class="col-md-10 col-xs-6">跟踪列表</span>
   </header>
 {% endblock %}
+
 
 
 {% block main %}

@@ -18,9 +18,9 @@
       <div>
         <form>
           <h1>管理系统后台登录</h1>
-          {{ forms.formInput('你的手机',type='nember') }}
-          {{ forms.formInput('你的密码',type='password') }}
-          {{ forms.formBtn('马上抢占名额') }}
+          {{ forms.formInput('你的手机号',type='nember',class='tel') }}
+          {{ forms.formInput('你的密码',type='password',class='password') }}
+          {{ forms.formBtn('登录',class='login') }}
         </form>
       </div>
     </div>

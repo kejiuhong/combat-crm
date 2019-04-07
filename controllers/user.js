@@ -23,7 +23,7 @@ const userController = {
       const users = await User.insert({ 
         name, tel, password, role, time
       });
-      console.log('users:',users);
+      // console.log('users:',users);
       res.json({ 
         code: 200, 
         data: users

@@ -21,14 +21,22 @@
       </div>
       <div class="nav-text ">汽车销售管理系统</div>
       <div class="nav-user col-md-2 collapse navbar-collapse" id="nav-login-out">
-        <span>周杰伦</span>
+        <span></span>
         <a href="">退出</a>
       </div>
       <div class="nav nav-botton navbar-toggle collapsed" data-toggle="collapsed" data-target="#nav-login-out">
-        <span>周杰伦</span>
+        <span class="mobile-use"></span>
         <ul class="nav-botton-menu">
-          <li class="border-bottom">人员管理</li>
-          <li class="border-bottom">线索管理</li>
+          <li class="border-bottom">
+            <a href="/admin/user/list">
+              人员管理
+            </a>
+          </li>
+          <li class="border-bottom">
+            <a href="/admin/clue/list">
+              线索管理
+            </a>
+          </li>
           <li>退出</li>
         </ul>
       </div>

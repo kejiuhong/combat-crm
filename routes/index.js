@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var userController = require('./../controllers/user.js');
+var adminController = require('./../controllers/login.js');
 
 /* GET landing page. */
 router.get('/', function(req, res, next) {
@@ -8,14 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET login page. */
-router.get('/admin/login', function(req, res, next) {
-  res.render('admin/login', {name:'login'});
-});
+router.get('/admin/login', adminController.showLogin);
 
 /* GET clueList page. */
-router.get('/admin/clue/list', function(req, res, next) {
-  res.render('admin/clueList', {name:'线索管理'});
-});
+router.get('/admin/clue/list', adminController.showLogin);
+
 
 /* GET clueTrack page. */
 router.get('/admin/clue/track', function(req, res, next) {

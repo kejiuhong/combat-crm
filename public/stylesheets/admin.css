@@ -35,6 +35,12 @@ a{
   text-align: center;
   font-size: .36rem;
 }
+.mobile-use{
+  display:inline-block;
+  width:.88rem;
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
 /* pc端右侧用户名样式 */
 .nav-user{
   float:right;

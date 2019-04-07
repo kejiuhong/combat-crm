@@ -6,25 +6,32 @@ const Page = {
   },
   // 按钮绑定事件
   bind: function() {
-    $('.btn').bind('click',this.handleSubmit);
+    $('.login').bind('click',this.handleSubmit);
   },
 
   // 事件
   handleSubmit: function() {
-    let name = $('.username').val();
     let tel = $('.tel').val();
-    let time = new Date();
-    if(!name || !tel){
+    let password = $('.password').val();
+    if(!password || !tel){
       alert('请填写完成内容后再提交！');
       return
     }
 
     $.ajax({
-      url:'/api/user.js',
+      url:'/api/user/login',
       type:'POST',
-      data:{name,tel,time},
-      success:function(res){
-        console.log(res);
+      data:{password,tel},
+      success:function(data){
+        if(data.code == 200){
+          alert(data.message);
+          window.location.href='/admin/clue/list';
+        }else{
+          alert(data.message);
+        }
+      },
+      error:function(err){
+        console.log(err)
       }
     })
   }
