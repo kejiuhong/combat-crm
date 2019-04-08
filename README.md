@@ -33,3 +33,6 @@
 <p>
   express API 'req.params'只需将a标签的href写为path：id便非常方便的让后台取到了id
 </p>
+<p>
+  cookie储存用户登录信息加密使用的AES对称加密算法，用的crypto模块
+</p>
