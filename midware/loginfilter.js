@@ -11,8 +11,11 @@ module.exports = function(req,res,next){
   //console.log('cookies',user_code);
   if(user_code){
     // 如果存在对它解密
+    // console.log('have:',user_code);
     user = cryptoC.aesDecrypt(user_code);
-    userArr = user.splite('\t');
+    // console.log(user);
+    userArr = user.split('\t');
+    // console.log('userArr');
     let tel = userArr[0];
     let password = userArr[1];
     let name = userArr[2];
@@ -20,8 +23,7 @@ module.exports = function(req,res,next){
     // 为了防止删改，再调用一次用户模型进行登录校验
     res.locals.isLogin = true;
     res.locals.userIfo ={tel,password,name,role};
-    
+    // console.log('cookies',res.locals);
   }
-  console.log('cookies',userArr);
   next();
 }

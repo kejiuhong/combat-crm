@@ -16,11 +16,11 @@ const cryptoCode = {
     return crypted;
   },
 
-  aesDecrypt:function(encrypt,key){
-    const decipher = crypto.createCipher('aes192',key,iv);
+  aesDecrypt:function(encrypt){
+    const decipher = crypto.createDecipher('aes192',key,iv);
     var decrypted = decipher.update(encrypt,'hex','utf8');
     decrypted += decipher.final('utf8');
-    return decripted;
+    return decrypted;
   }
 }
 

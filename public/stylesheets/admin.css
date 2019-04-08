@@ -61,12 +61,12 @@ a{
   z-index:222;
 }
 .nav-botton-menu{
+  display:none;
   position:absolute;
   top:.82rem;
   right:-.3rem;
   padding:0;
   background:#24211c;
-  display:none;
 }
 .nav-botton-menu li {
   width: 1.5rem;

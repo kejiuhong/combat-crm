@@ -26,7 +26,7 @@ const adminController = {
         // 将数据保存再cookie内
         res.cookie('userIfo',userCriypt,{maxAge:7*24*60*60*1000,httpOnly: true});
         
-        console.log('ifo:',userCriypt);
+        // console.log('ifo:',userCriypt);
 
         res.json({
           code:200,
@@ -50,11 +50,11 @@ const adminController = {
 
   // 登录后跳转到跟踪列表页
   showLogin:async function(req,res,next){
-    console.log('show:',res.locals.userIfo);
-    // if(res.locals.isLogin){
-    //   res.redirect('admin/clueList');
-    //   return
-    // }
+    // console.log('show:',res.locals.userIfo);
+    if(res.locals.isLogin){
+      res.redirect('/admin/clue/list');
+      return
+    }
     res.render('admin/login')
   }
   // 跟踪列表 end 
