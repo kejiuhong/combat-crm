@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api');
+var filters = require('./midware/indexfilter');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+filters(app);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 

@@ -16,7 +16,7 @@
 {% macro formItem(name, value='', type='text', class='') %}
   <div class="form-group formItem">
     <label class="form-name">{{ name }}:</label>
-    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }} value={{ value }} maxlength={{ maxlength }}>
+    <input class="form-control {{ class }}" type={{ type }} placeholder={{ name }} value={{ value }}>
   </div>
 {% endmacro %}
 

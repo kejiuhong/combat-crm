@@ -1,4 +1,5 @@
-const User = require('./../models/user.js')
+const User = require('./../models/user.js');
+const cryptoC = require('./../util/encrypt.js');
 
 const adminController = {
   // 登录
@@ -20,11 +21,12 @@ const adminController = {
       
       // console.log(res.locals);
       if(user){
-        let user_code = tel+'\t'+password+'\t'+user.id+'\t'+user.role
+        let user_code = tel+'\t'+password+'\t'+user.name+'\t'+user.role
+        let userCriypt = cryptoC.aesEncrypt(user_code);
         // 将数据保存再cookie内
-        res.cookie('userIfo',JSON.stringify(user_code),{maxAge:7*24*60*60*1000,httpOnly: true});
-        res.locals.isLogin = user;
-        console.log('ifo:',res.locals);
+        res.cookie('userIfo',userCriypt,{maxAge:7*24*60*60*1000,httpOnly: true});
+        
+        console.log('ifo:',userCriypt);
 
         res.json({
           code:200,
@@ -48,11 +50,11 @@ const adminController = {
 
   // 登录后跳转到跟踪列表页
   showLogin:async function(req,res,next){
-    console.log('show:',res.locals);
-    if(req.signedCookies){
-      res.render('admin/clueList');
-      return
-    }
+    console.log('show:',res.locals.userIfo);
+    // if(res.locals.isLogin){
+    //   res.redirect('admin/clueList');
+    //   return
+    // }
     res.render('admin/login')
   }
   // 跟踪列表 end 
