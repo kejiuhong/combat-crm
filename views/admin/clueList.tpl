@@ -17,7 +17,7 @@
 
   {% set headV = ['姓名', '电话', '来源', '创建时间', '跟踪销售', '状态', '操作'] %}
 
-  {% set bodyV = [{name:'周杰伦',tel:'12345678912', source:'baidu', time:'2019/03/07 11:19:07', saleman:'陈奕迅', state:'意向一般', control:'跟踪'}, {name:'周杰伦',tel:'12345678912', source:'baidu', time:'2019/03/07 11:19:07', saleman:'陈奕迅', state:'意向一般', control:'跟踪'}, {name:'周杰伦',tel:'12345678912', source:'baidu', time:'2019/03/07 11:19:07', saleman:'陈奕迅', state:'意向一般', control:'跟踪'}] %}
+  
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -28,16 +28,17 @@
       </tr>
     </thead>
     <tbody>
-      {% for item in bodyV %}
+      {% for item in clueUser %}
       <tr>
         <th>{{ item.name }}</th>
         <th>{{ item.tel }}</th>
         <th>{{ item.source }}</th>
         <th>{{ item.time }}</th>
-        <th>{{ item.saleman }}</th>
-        <th>{{ item.state }}</th>
+        <th>{{ item.user_id }}</th>
+        <th>{{ item.status }}</th>
+        <th hidden></th>
         <th>
-          <a class="main-header-botton" href="#">{{ item.control }}</a>
+          <a class="main-header-botton edit" href="/admin/clue/track/:{{item.id}}">跟踪</a>
         </th>
       </tr>
       {% endfor %}

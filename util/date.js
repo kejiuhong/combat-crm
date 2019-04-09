@@ -6,7 +6,7 @@ const dateStyle = date => {
   const minute = date.getMinutes();//获得分
   const second = date.getSeconds();//获得秒
 
-  return [year,month,day].map(dateChange).join('/')+' '+[hour,minute,second].map(dateChange).join('-');
+  return [year,month,day].map(dateChange).join('-')+' '+[hour,minute,second].map(dateChange).join(':');
 }
 
 

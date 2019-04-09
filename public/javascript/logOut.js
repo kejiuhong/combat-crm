@@ -1,7 +1,4 @@
-
-
-
-const page = {
+const back = {
   init:function(){
     this.bind()
   },
@@ -23,4 +20,4 @@ const page = {
   }
 }
 
-page.init();
+back.init();

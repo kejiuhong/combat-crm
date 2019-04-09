@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var userController = require('./../controllers/user.js');
 var adminController = require('./../controllers/login.js');
+var indexController = require('./../controllers/clue.js');
 var userMostLogin = require('./../midware/mostLogin.js');
 
 /* GET landing page. */
@@ -13,15 +14,11 @@ router.get('/', function(req, res, next) {
 router.get('/admin/login', adminController.showLogin);
 
 /* GET clueList page. */
-router.get('/admin/clue/list',userMostLogin.mostLogin, function(req,res,next){
-  res.render('admin/clueList');
-});
+router.get('/admin/clue/list',userMostLogin.mostLogin, indexController.clueShow);
 
 
 /* GET clueTrack page. */
-router.get('/admin/clue/track',userMostLogin.mostLogin, function(req, res, next) {
-  res.render('admin/clueTrack', {name:'跟踪线索', path:'返回跟踪列表', username:'周杰伦'});
-});
+router.get('/admin/clue/track',userMostLogin.mostLogin, indexController.clueShow);
 
 /* GET userCreate page. */
 router.get('/admin/user/create',userMostLogin.mostLogin, function(req, res, next) {

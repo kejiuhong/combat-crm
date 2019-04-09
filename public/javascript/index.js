@@ -1,4 +1,4 @@
-const page = {
+  const page = {
   init: function(){
     this.bind();
   },
@@ -13,7 +13,9 @@ const page = {
 
     let tel = $('.tel').val();
     let username =$('.username').val();
-    console.log('ifo',username);
+    let url = self.location.href;
+
+    // console.log('ifo',url);
     if(!username || !tel){
       alert('信息未完成！')
     }
@@ -21,17 +23,16 @@ const page = {
    $.ajax({
     url:'/api/index',
     type:'POST',
-    data:{username,tel},
+    data:{username,tel,url},
 
      beforeHandle:function(){
       $('.layout-btn').attr('disabled',true);
     },
 
     success:function(res){
-      console.log('succ',res);
+      // console.log('succ',res);
       if(res.code == 200){
         alert('提交成功！');
-        window.location.href='/admin/clue/list';
       }else{
         alert(res.message);
       }

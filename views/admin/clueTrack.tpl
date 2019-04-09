@@ -10,11 +10,24 @@
 {% endblock %}
 
 
+
 {% block section -%}
-  {{ forms.formClue('客户名称', username) }}
-  {{ forms.formClue('联系电话') }}
-  {{ forms.formClue('线索来源') }}
-  {{ forms.formClue('创建时间') }}
+  <div class="form-group">
+    <label class="form-name">客户名称:</label>
+    <span class="clue-text">{{clueUser.name}}</span>
+  </div>
+  <div class="form-group">
+    <label class="form-name">联系电话:</label>
+    <span class="clue-text">{{clueUser.tel}}</span>
+  </div>
+  <div class="form-group">
+    <label class="form-name">线索来源:</label>
+    <span class="clue-text">{{clueUser.source}}</span>
+  </div>
+  <div class="form-group">
+    <label class="form-name">创建时间:</label>
+    <span class="clue-text">{{clueUser.time}}</span>
+  </div>
   {{ forms.formClue('用户状态') }}
   <div class="form-group">
     {{ forms.formSelect(items=[{name:'意向一般', value:'general'}, {name:'有兴趣', value:'interest'}, {name:'准备购买', value:'purchase'}]) }}

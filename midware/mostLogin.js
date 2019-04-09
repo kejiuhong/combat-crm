@@ -2,7 +2,7 @@
 const userMostLogin = {
   mostLogin:function(req,res,next){
     if(!res.locals.isLogin){
-      res.redirect('admin/login');
+      res.redirect('/admin/login');
       return
     }
   next();
