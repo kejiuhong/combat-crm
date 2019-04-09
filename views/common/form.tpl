@@ -2,9 +2,9 @@
 
 
 {# 主题内容部分 header #}
-{% macro formHeader(name, backname) %}
+{% macro formHeader(name, backname,href="") %}
   <span class="col-md-10 col-xs-6">{{ name }}</span>
-  <a href="" class="main-header-botton col-md-2 col-xs-6">{{ backname }}>>></a>
+  <a href="{{ href }}" class="main-header-botton col-md-2 col-xs-6">{{ backname }}>>></a>
 {% endmacro %}
 
 {# label #}
@@ -52,10 +52,10 @@
 
 
 {# textarea #}
-{% macro formText(text) %}
+{% macro formText(text,class='') %}
 <div class="form-group">
-  <textarea class="form-textarea" row='10' cols='50'>
-  {{ text }}
+  <textarea class="form-textarea {{class}}" row='10' cols='50'>
+  {% if text=='' %}备注{% endif %} {{ text }}
   </textarea>
 </div>
 {% endmacro %}
@@ -76,7 +76,7 @@
   {% for item in items %}
   <li class='clue-show-list'>
     <p>{{ item.time }}</p>
-    <p>{{ item.text }}</p>
+    <p>{{ item.content }}</p>
   </li>
   {% endfor %}
 </ul>

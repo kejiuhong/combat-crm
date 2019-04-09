@@ -18,7 +18,7 @@ router.get('/admin/clue/list',userMostLogin.mostLogin, indexController.clueShow)
 
 
 /* GET clueTrack page. */
-router.get('/admin/clue/track',userMostLogin.mostLogin, indexController.clueShow);
+router.get('/admin/clue/track/:id',userMostLogin.mostLogin, indexController.clueEdit);
 
 /* GET userCreate page. */
 router.get('/admin/user/create',userMostLogin.mostLogin, function(req, res, next) {

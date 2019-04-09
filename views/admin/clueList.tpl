@@ -38,7 +38,7 @@
         <th>{{ item.status }}</th>
         <th hidden></th>
         <th>
-          <a class="main-header-botton edit" href="/admin/clue/track/:{{item.id}}">跟踪</a>
+          <a class="main-header-botton edit" href="/admin/clue/track/{{item.id}}">跟踪</a>
         </th>
       </tr>
       {% endfor %}

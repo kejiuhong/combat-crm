@@ -6,16 +6,19 @@ const back = {
   bind:function(){
     $('.mobile-use').bind('click',()=>{
       console.log('showtime');
-      $('.nav-botton-menu').css('display','inline-block');
+      $('.nav-botton-menu').slideToggle();
     });
 
     // 点击退出按钮
-    $('.logOut').bind('click',(req,res,next)=>{
-      alert('comeback');
-      alert(userIfo);
-      window.location.href='admin/login';
+    $('.logOut').bind('click',function(req,res,next){
+      alert('你已成功退出！');
+      res.locals.isLogin = false;
+      res.locals.userIfo = {};
+      res.cookie('userIfo',{});
+      // window.location.href='/admin/login';
+      
       // 清楚cookie数据
-      res.clearCookie('userIfo');
+      return
     });
   }
 }
