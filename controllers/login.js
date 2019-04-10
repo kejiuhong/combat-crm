@@ -23,18 +23,21 @@ const adminController = {
     }
 
     var telCheck = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if(tel.length == 12 && telCheck.test(tel) ){
+    if(tel.length !== 11 && !telCheck.test(tel) ){
+      console.log('no');
       res.json({
         code:0,
         message:'账号应为11位手机号！'
       })
+      return
     }
 
-    if(password.length > 6){
+    if(password.length < 6){
       res.json({
         code:0,
-        message:'密码需要多于6位数！'
+        message:'密码需要大于6位数！'
       })
+      return
     }
 
     try{
@@ -71,7 +74,7 @@ const adminController = {
 
   // 登录后跳转到跟踪列表页
   showLogin:async function(req,res,next){
-    // console.log('show:',res.locals.userIfo);
+    console.log('show:',res.locals.userIfo);
     if(res.locals.isLogin){
       res.redirect('/admin/clue/list');
       return
@@ -86,18 +89,8 @@ const adminController = {
   // 退出登录
   
   loginOut: function(req,res,next){
-    // req.session.destroy((err)=>{
-    //   if(err){
-    //     res.json({
-    //       code:2,
-    //       message:'退出失败！'
-    //     })
-    //   }
-
-      res.clearCookie(userIfo);
-      res.redirect('/admin/login');
-
-    // })
+    res.clearCookie(userIfo);
+    res.redirect('/admin/login');
   }
 
   // 退出登录  end

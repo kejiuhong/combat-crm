@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET login page. */
-router.get('/admin/login', adminController.showLogin);
+router.get('/admin/login',adminController.showLogin);
 /* GET login out page*/
-// router.get('/admin/login', adminController.loginOut);
+// router.get('/login', adminController.loginOut);
 
 /* GET clueList page. */
 router.get('/admin/clue/list',userMostLogin.mostLogin, indexController.clueShow);
@@ -23,14 +23,14 @@ router.get('/admin/clue/list',userMostLogin.mostLogin, indexController.clueShow)
 router.get('/admin/clue/track/:id',userMostLogin.mostLogin, indexController.clueEdit);
 
 /* GET userCreate page. */
-router.get('/admin/user/create',userMostLogin.mostLogin, function(req, res, next) {
+router.get('/admin/user/create',userMostLogin.mostLogin, userMostLogin.roleFilter,function(req, res, next) {
   res.render('admin/userCreate');
 });
 
 /* GET userEdite page. */
-router.get('/admin/user/edit/:id',userMostLogin.mostLogin, userController.edit);
+router.get('/admin/user/edit/:id',userMostLogin.mostLogin,userMostLogin.roleFilter, userController.edit);
 
 /* GET userList page. */
-router.get('/admin/user/list',userMostLogin.mostLogin,userController.show);
+router.get('/admin/user/list',userMostLogin.mostLogin,userMostLogin.roleFilter, userController.show);
 
 module.exports = router;

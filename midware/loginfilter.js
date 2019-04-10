@@ -27,7 +27,7 @@ module.exports = function(req,res,next){
     res.locals.isLogin = true;
     res.locals.userIfo ={tel,password,name,role};
     console.log('cookies',res.locals);
-    return
+    
 
   }
   next();

@@ -22,8 +22,9 @@
       <div class="nav-text ">汽车销售管理系统</div>
       <div class="nav-user col-md-2 collapse navbar-collapse" id="nav-login-out">
         <span>{{userIfo.name}}</span>
-        <a class="logOut" href="/admin/login">退出</a>
+        <a class="logOut" href="/api/login/out">退出</a>
       </div>
+      <!-- 移动端导航显示 -->
       <div class="nav nav-botton navbar-toggle collapsed" data-toggle="collapsed" data-target="#nav-login-out">
         <span class="mobile-use">{{userIfo.name}}</span>
         <ul class="nav-botton-menu">
@@ -38,26 +39,31 @@
             </a>
           </li>
           <li>
-            <a class="logOut" href="/admin/login">
+            <a class="logOut" href="/api/login/out">
               退出
             </a>
           </li>
         </ul>
       </div>
+      <!-- 移动端导航显示 end -->
     </div>
     <!-- fluid end -->
   </nav>
   <!-- nav end -->
+
   <!-- container -->
   <div class="container row">
+
     <!-- 侧边栏 -->
     <div class="sidebar col-md-3 collapse navbar-collapse">
       <ul>
+        {% userIfo.role == '管理' %}
         <li class="border-bottom">
           <a href="/admin/user/list">
             人员管理
           </a>
         </li>
+        {% endif %}
         <li class="border-bottom">
           <a href="/admin/clue/list">
             线索管理
@@ -66,6 +72,7 @@
       </ul>
     </div>
     <!-- 侧边栏 end -->
+
     <!-- 主题内容部分 -->
     <article class="main col-md-9 col-xs-12">
       <header class="main-header border-bottom row">
@@ -78,6 +85,8 @@
         {% block main %}
         {% endblock %}
       </div>
+
+      <!-- 左侧销售分配内容 -->
       <section class="main-content col-md-6 col-xs-12">
         <form class="form-horizontal" >
           {% block section %}
@@ -85,10 +94,16 @@
         </form>
 
       </section>
+      <!-- 左侧销售分配内容 end -->
+
+      <!-- 右侧跟踪线索内容 -->
         {% block aside %}
         {% endblock %}
+      <!-- 右侧跟踪线索内容 end -->
+
     </article>
     <!-- 主题内容部分 end -->
+
   </div>
   <!-- container end -->
 </div>

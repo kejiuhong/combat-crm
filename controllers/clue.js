@@ -32,11 +32,12 @@ const indexController = {
     }
 
     var telCheck = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if(tel.length == 11 && telCheck.test(tel)){
+    if(tel.length !== 11 && !telCheck.test(tel)){
       res.json({
         code:0,
         message:'账号应为11位手机号！'
       })
+      return
     }
 
     
@@ -61,14 +62,24 @@ const indexController = {
   // 跟踪数据展示
   
   clueShow:async function(req,res,next){
+    const role = res.locals.userIfo.role
+    const name = res.locals.userIfo.name;
+    // console.log('name',name);
+    var users='';
     try{
-      const users = await Clue.all();
-
+      // 判断用户如果是管理员便全部显示，如果是销售，只显示自己所负责项目
+      if(role == '管理'){
+        users = await Clue.all();
+      }else{
+        users = await Clue.find({name});
+        console.log('users');
+      }
+      console.log('users',users);
       res.locals.clueUser = users.map((data)=>{
         data.time = dateStyle(data.time);
         return data;
       });
-      // console.log(res.locals);
+      console.log('clueUser:',res.locals);
       res.render('admin/clueList',res.lcoals);
       return
     }catch(e){

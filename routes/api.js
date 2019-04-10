@@ -13,6 +13,7 @@ router.post('/user/login', adminController.login); //管理人员登录
 router.post('/index', indexController.clueInsert); //用户录入
 router.post('/clue/save', indexController.clueUpdate); //用户情况更新
 router.post('/clue/add', indexController.trackUpdate); //业务情况更新
+router.get('/login/out', adminController.loginOut); //用户退出
 
 
 module.exports = router;
