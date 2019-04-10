@@ -22,7 +22,7 @@
       <div class="nav-text ">汽车销售管理系统</div>
       <div class="nav-user col-md-2 collapse navbar-collapse" id="nav-login-out">
         <span>{{userIfo.name}}</span>
-        <a class="logOut" href="">退出</a>
+        <a class="logOut" href="/admin/login">退出</a>
       </div>
       <div class="nav nav-botton navbar-toggle collapsed" data-toggle="collapsed" data-target="#nav-login-out">
         <span class="mobile-use">{{userIfo.name}}</span>
@@ -38,7 +38,7 @@
             </a>
           </li>
           <li>
-            <a class="logOut" href="">
+            <a class="logOut" href="/admin/login">
               退出
             </a>
           </li>

@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : combat-crm
-Source Server Version : 50505
+Source Server         : combat
+Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : sale
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-04-10 00:48:47
+Date: 2019-04-10 17:01:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for clue
+-- Table structure for `clue`
 -- ----------------------------
 DROP TABLE IF EXISTS `clue`;
 CREATE TABLE `clue` (
@@ -34,13 +34,13 @@ CREATE TABLE `clue` (
 -- ----------------------------
 -- Records of clue
 -- ----------------------------
-INSERT INTO `clue` VALUES ('20', '用户1', '111', 'baidu', '测试3', '意向一般', '2019-04-10 00:48:13', '      多多少少\n  \n  \n  ');
-INSERT INTO `clue` VALUES ('21', '用户2', '2222', 'baidu', '测试2', '意向一般', '2019-04-09 14:14:16', '   2222\n  \n  ');
-INSERT INTO `clue` VALUES ('22', '用户3', '3333', 'baidu', '测试2', '有兴趣', '2019-04-09 14:14:22', '3333\n  ');
-INSERT INTO `clue` VALUES ('23', '用户4', '4444', '360', '测试3', '准备购买', '2019-04-09 14:14:34', '4444\n  \n  ');
+INSERT INTO `clue` VALUES ('20', '用户1', '13845264444', 'baidu', '测试3', '意向一般', '2019-04-10 00:48:13', '      多多少少\n  \n  \n  ');
+INSERT INTO `clue` VALUES ('21', '用户2', '15845264444', 'baidu', '测试2', '意向一般', '2019-04-09 14:14:16', '   2222\n  \n  ');
+INSERT INTO `clue` VALUES ('22', '用户3', '17845264444', 'baidu', '测试2', '有兴趣', '2019-04-09 14:14:22', '3333\n  ');
+INSERT INTO `clue` VALUES ('23', '用户4', '18845264444', '360', '测试3', '准备购买', '2019-04-09 14:14:34', '4444\n  \n  ');
 
 -- ----------------------------
--- Table structure for note
+-- Table structure for `note`
 -- ----------------------------
 DROP TABLE IF EXISTS `note`;
 CREATE TABLE `note` (
@@ -60,7 +60,7 @@ INSERT INTO `note` VALUES ('3', '2222', '跟踪内容1', '2019-04-09 21:15:28');
 INSERT INTO `note` VALUES ('10', '111', '  跟踪内容3', '2019-04-10 00:43:57');
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -76,7 +76,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('3', '测试1', '123456', '123456', '管理', '2019-04-08 11:53:58');
-INSERT INTO `user` VALUES ('4', '测试2', '12', '12', '销售', '2019-04-08 11:54:15');
-INSERT INTO `user` VALUES ('5', '测试3', '123', '123', '销售', '2019-04-09 21:10:57');
-INSERT INTO `user` VALUES ('6', '测试4', '1234', '1234', '销售', '2019-04-09 22:11:29');
+INSERT INTO `user` VALUES ('3', '测试1', '13856897333', '123456', '管理', '2019-04-08 11:53:58');
+INSERT INTO `user` VALUES ('4', '测试2', '14856897333', '123456', '销售', '2019-04-08 11:54:15');
+INSERT INTO `user` VALUES ('5', '测试3', '17856897333', '123456', '销售', '2019-04-09 21:10:57');
+INSERT INTO `user` VALUES ('6', '测试4', '15856897333', '123456', '销售', '2019-04-09 22:11:29');

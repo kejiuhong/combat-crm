@@ -51,7 +51,7 @@ const userController = {
         
       });
 
-      console.log('change:',res.locals);
+      // console.log('change:',res.locals);
       res.render('admin/userList', res.locals);
       
     }catch(e){

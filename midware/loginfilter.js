@@ -9,6 +9,9 @@ module.exports = function(req,res,next){
 
   let user_code = req.cookies.userIfo;
   //console.log('cookies',user_code);
+  
+
+  // 判断cookie是否存在
   if(user_code){
     // 如果存在对它解密
     // console.log('have:',user_code);
@@ -23,7 +26,9 @@ module.exports = function(req,res,next){
     // 为了防止删改，再调用一次用户模型进行登录校验
     res.locals.isLogin = true;
     res.locals.userIfo ={tel,password,name,role};
-    // console.log('cookies',res.locals);
+    console.log('cookies',res.locals);
+    return
+
   }
   next();
 }

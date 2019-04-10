@@ -8,6 +8,12 @@ const Url = require('url');
 const indexController = {
 
   // 跟踪数据添加
+  /*
+   * 验证
+   * 电话，密码不能为空
+   * 电话满足11位
+   * 
+   */
   clueInsert:async function(req,res,next){
     // console.log(req);
     let tel= req.body.tel;
@@ -25,6 +31,15 @@ const indexController = {
       return
     }
 
+    var telCheck = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if(tel.length == 11 && telCheck.test(tel)){
+      res.json({
+        code:0,
+        message:'账号应为11位手机号！'
+      })
+    }
+
+    
     try{
       const clueUser = await Clue.insert({name,tel,source,time});
       res.json({
