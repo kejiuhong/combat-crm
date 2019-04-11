@@ -32,6 +32,10 @@
         <th>
           <a class="listBtn main-header-botton" href="/admin/user/edit/{{ item.id }}">编辑</a>
         </th>
+        <th>
+          <button class="delete btn-danger" id="{{item.id}}">删除</button>
+        </th>
+
       </tr>
       {% endfor %}
     </tbody>
@@ -44,4 +48,5 @@
 
 {% block script %}
 <script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="/javascript/userDel.js" type="text/javascript"></script>
 {% endblock %}

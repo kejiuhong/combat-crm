@@ -13,6 +13,9 @@ const Page = {
 
     // 线索跟踪添加跟踪情况
     $('.add').bind('click',this.handlAdd);
+
+    // 删除线索跟踪情况
+    $('.delete').bind('click',this.del);
   },
 
 // 线索跟踪修改的保存事件
@@ -87,9 +90,38 @@ const Page = {
         $('.save').attr('disable',false);
       }
     })
-  }
+  },
 
   // 线索跟踪添加跟踪情况事件 end
+
+
+  // 删除线索跟踪情况事件
+
+  del:function(e){
+    console.log(e.target.id);
+    let id = e.target.id;
+
+    $.ajax({
+      url:'/api/del/track',
+      type:'GET',
+      data:{id},
+
+      success:function(res){
+        if(res.code==200){
+          alert(res.message);
+          window.location.href='/admin/clue/track';
+        }else{
+          alert(res.message);
+        }
+      },
+
+      errer:function(err){
+        console.log(err);
+      }
+    })
+  }
+
+  // 删除线索跟踪情况事件 end
 }
 
 Page.init();

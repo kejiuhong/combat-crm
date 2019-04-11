@@ -12,8 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* GET login page. */
 router.get('/admin/login',adminController.showLogin);
-/* GET login out page*/
-// router.get('/login', adminController.loginOut);
+
 
 /* GET clueList page. */
 router.get('/admin/clue/list',userMostLogin.mostLogin, indexController.clueShow);

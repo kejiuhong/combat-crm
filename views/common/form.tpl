@@ -54,9 +54,7 @@
 {# textarea #}
 {% macro formText(text,class='') %}
 <div class="form-group">
-  <textarea class="form-textarea {{class}}" row='10' cols='50'>
-  {% if text=='' %}备注{% endif %} {{ text }}
-  </textarea>
+  <textarea class="form-textarea {{class}}" row='10' cols='50'>{% if text=='' %}备注{% endif %}{{text}}</textarea>
 </div>
 {% endmacro %}
 
@@ -77,6 +75,7 @@
   <li class='clue-show-list'>
     <p>{{ item.time }}</p>
     <p>{{ item.content }}</p>
+    <div class="del delete" id="{{item.id}}">x</div>
   </li>
   {% endfor %}
 </ul>

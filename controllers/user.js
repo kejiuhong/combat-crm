@@ -113,6 +113,26 @@ const userController = {
         message:'内部错误！'
       })
     }
+  },
+
+
+  // 管理员删除销售
+  del:async function(req,res,next){
+    let id = req.body.id;
+    try{
+      const del = await User.del(id);
+      res.json({
+        code:200,
+        message:'删除成功！'
+      });
+      return
+    }catch(e){
+      console.log('delUser：',e);
+      res.json({
+        code:0,
+        message:'内部错误！'
+      })
+    }
   }
 
 }

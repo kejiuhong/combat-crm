@@ -132,7 +132,14 @@ a{
   text-align:right;
   text-decoration-line:underline;
 }
-
+/* 列表内删除按钮 */
+.btn-danger{
+  border-radius: .1rem;
+  font-size: .26rem;
+  padding: .05rem;
+  letter-spacing: .05rem;
+  text-align: center;
+}
 
 /* 中间内容主体 */
 .main-content{
@@ -158,13 +165,30 @@ a{
   border:1px solid #ccc;
   border-radius: .08rem;
   height: 2rem;
+  padding:0 .1rem;
 }
 .clue-show-list{
+  position:relative;
   margin-bottom: .4rem;
   line-height: .4rem;
 }
 .even{
   background:#a5b7bf47;
+}
+
+.del{
+  display: inline-block;
+  position: absolute;
+  width: .3rem;
+  height: .3rem;
+  top: .1rem;
+  right: 1rem;
+  background: rgba(64,64,64,.1);
+  border-radius: 5rem;
+  line-height: .3rem;
+  text-align: center;
+  color: #919191;
+  cursor: pointer;
 }
 /* 中间内容部分 end */
 /*  主题内容部分 end */

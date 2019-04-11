@@ -28,19 +28,39 @@
       </tr>
     </thead>
     <tbody>
+      {% if userIfo.role == '管理' %}
+        {% for item in clueUser %}
+          <tr>
+            <th>{{ item.name }}</th>
+            <th>{{ item.tel }}</th>
+            <th>{{ item.source }}</th>
+            <th>{{ item.time }}</th>
+            <th>{{ item.user_id }}</th>
+            <th>{{ item.status }}</th>
+            <th hidden></th>
+            <th>
+              <a class="main-header-botton edit" href="/admin/clue/track/{{item.id}}">跟踪</a>
+            </th>
+          </tr>
+        {% endfor %}
+      {% endif %}
+
+      
       {% for item in clueUser %}
-      <tr>
-        <th>{{ item.name }}</th>
-        <th>{{ item.tel }}</th>
-        <th>{{ item.source }}</th>
-        <th>{{ item.time }}</th>
-        <th>{{ item.user_id }}</th>
-        <th>{{ item.status }}</th>
-        <th hidden></th>
-        <th>
-          <a class="main-header-botton edit" href="/admin/clue/track/{{item.id}}">跟踪</a>
-        </th>
-      </tr>
+        {% if userIfo.name == item.user_id %}
+          <tr>
+            <th>{{ item.name }}</th>
+            <th>{{ item.tel }}</th>
+            <th>{{ item.source }}</th>
+            <th>{{ item.time }}</th>
+            <th>{{ item.user_id }}</th>
+            <th>{{ item.status }}</th>
+            <th hidden></th>
+            <th>
+              <a class="main-header-botton edit" href="/admin/clue/track/{{item.id}}">跟踪</a>
+            </th>
+          </tr>
+        {% endif %}
       {% endfor %}
     </tbody>
   </table>

@@ -1,3 +1,7 @@
+/*
+* 管理员新建信息页面
+*/
+
 const Page={
   init: function(){
     this.bind();
@@ -7,6 +11,7 @@ const Page={
     $('.save').bind('click',this.handleSubmit);
   },
 
+  
   handleSubmit: function(){
     console.log('ok');
     let name = $('.username').val();

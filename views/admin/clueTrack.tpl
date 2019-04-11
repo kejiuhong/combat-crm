@@ -5,29 +5,42 @@
 
 {% block title -%} {{ name }} {% endblock %}
 
+
+
 {% block header -%}
   {{ forms.formHeader('跟踪线索', '返回跟踪列表',href='/admin/clue/list') }}
 {% endblock %}
 
+
+
 {% set items = [{name:'意向一般', value:'general'}, {name:'有兴趣', value:'interest'}, {name:'准备购买', value:'purchase'}] %}
 
+
+
+{# 左侧内容 #}
 {% block section -%}
+
   <div class="form-group">
     <label class="form-name">客户名称:</label>
     <span class="clue-text">{{clueUser[0].name}}</span>
   </div>
+
   <div class="form-group">
     <label class="form-name">联系电话:</label>
     <span class="clue-text tel">{{clueUser[0].tel}}</span>
   </div>
+
   <div class="form-group">
     <label class="form-name">线索来源:</label>
     <span class="clue-text">{{clueUser[0].source}}</span>
   </div>
+
   <div class="form-group">
     <label class="form-name">创建时间:</label>
     <span class="clue-text">{{clueUser[0].time}}</span>
   </div>
+
+  {% if userIfo.role == '管理' %}
   <span class="hidID" hidden>{{clueUser[0].id}}</span>
   {{ forms.formClue('用户状态') }}
   <div class="form-group">
@@ -37,6 +50,8 @@
       {% endfor %}
     </select>
   </div>
+
+
   {{ forms.formClue('当前分配销售') }}
   <div class="form-group">
     <select class="btn btn-default form-btn opSale" value='选择'>
@@ -45,10 +60,19 @@
       {% endfor %}
     </select>
   </div>
+
+
   {{ forms.formClue('备注') }}
   {{ forms.formText(clueUser[0].remark,class='remark') }}
   {{ forms.formBtn('保存',class='save') }}
+
+  {% endif %}
 {% endblock %}
+
+{# 左侧内容 end #}
+
+
+
 
 {# 内容右侧 #}
 {% block aside %}
@@ -61,6 +85,7 @@
 </aside>
 {% endblock %}
 
+{# 内容右侧 end #}
 
 {% block script %}
 <script src="/javascript/jquery-3.3.1.min.js" type="text/javascript"></script>

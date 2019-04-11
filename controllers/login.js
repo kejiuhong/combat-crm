@@ -89,7 +89,8 @@ const adminController = {
   // 退出登录
   
   loginOut: function(req,res,next){
-    res.clearCookie(userIfo);
+    console.log('out:',res.locals);
+    res.clearCookie('userIfo');
     res.redirect('/admin/login');
   }
 

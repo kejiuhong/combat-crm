@@ -68,7 +68,6 @@ const indexController = {
 
     try{
       // 判断用户如果是管理员便全部显示，如果是销售，只显示自己所负责项目
-        
 
           let users = await Clue.all();
           console.log('users',users);
@@ -186,9 +185,31 @@ const indexController = {
         message:'内部错误！'
       })
     }
-  }
+  },
 
   // 线索跟踪情况更新 end
+
+  // 线索跟踪删除事件
+
+  del:async function(req,res,next){
+    const id = req.body.id;
+    try{
+     const delIfo = await Track.del(id);
+     console.log('del',delIfo);
+      res.json({
+        code:0,
+        message:'删除成功！'
+      })
+    }catch(e){
+      console.log('delerr',e);
+      res.json({
+        code:0,
+        message:'内部错误！'
+      })
+    }
+  }
+
+  // 线索跟踪删除事件  end
 }
 
 module.exports = indexController;
