@@ -63,7 +63,7 @@ const adminController = {
         message:'登陆失败，你还不是已有用户！'
       })
     }catch(e){
-      console.log(e);
+      console.log('login',e);
       res.json({
         code:0,
         message:'内部错误！'

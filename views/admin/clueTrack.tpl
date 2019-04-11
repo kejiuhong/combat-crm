@@ -41,7 +41,7 @@
   <div class="form-group">
     <select class="btn btn-default form-btn opSale" value='选择'>
       {% for item in userSale %}
-        <option value={{ item.name }} {% if clueUser[0].user_id == item.name %}selected{% endif %}>{{ item.name }}</options>
+        <option value={{ item.name }}>{{ item.name }}</options>
       {% endfor %}
     </select>
   </div>

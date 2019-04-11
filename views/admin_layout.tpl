@@ -57,13 +57,11 @@
     <!-- 侧边栏 -->
     <div class="sidebar col-md-3 collapse navbar-collapse">
       <ul>
-        {% userIfo.role == '管理' %}
         <li class="border-bottom">
           <a href="/admin/user/list">
             人员管理
           </a>
         </li>
-        {% endif %}
         <li class="border-bottom">
           <a href="/admin/clue/list">
             线索管理

@@ -62,26 +62,26 @@ const indexController = {
   // 跟踪数据展示
   
   clueShow:async function(req,res,next){
-    const role = res.locals.userIfo.role
-    const name = res.locals.userIfo.name;
+    // const role = res.locals.userIfo.role
+    // const name = res.locals.userIfo.name;
     // console.log('name',name);
-    var users='';
+
     try{
       // 判断用户如果是管理员便全部显示，如果是销售，只显示自己所负责项目
-      if(role == '管理'){
-        users = await Clue.all();
-      }else{
-        users = await Clue.find({name});
-        console.log('users');
-      }
-      console.log('users',users);
-      res.locals.clueUser = users.map((data)=>{
-        data.time = dateStyle(data.time);
-        return data;
-      });
+        
+
+          let users = await Clue.all();
+          console.log('users',users);
+
+          res.locals.clueUser = users.map((data)=>{
+            data.time = dateStyle(data.time);
+            return data;
+          });
+
       console.log('clueUser:',res.locals);
       res.render('admin/clueList',res.lcoals);
       return
+
     }catch(e){
       console.log('show',e);
       res.locals.error = e;
