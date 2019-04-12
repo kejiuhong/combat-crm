@@ -20,8 +20,8 @@ const indexController = {
     let name = req.body.username;
     let urls = req.body.url;
     let source = Url.parse(urls,true).query.utm;
-    let time = new Date();
-    // console.log(source);
+    let time = (new Date()).valueOf();
+    // console.log('timestamp',time);
 
     if (!tel || !name){
       res.json({
@@ -67,12 +67,29 @@ const indexController = {
     // console.log('name',name);
 
     try{
-      // 判断用户如果是管理员便全部显示，如果是销售，只显示自己所负责项目
-
           let users = await Clue.all();
           console.log('users',users);
 
-          res.locals.clueUser = users.map((data)=>{
+          var user = [];
+
+          // 根据最近创建排序
+          for(let i=0; i<users.length; i++){
+            console.log('arr',users[i]);
+
+            for(let j =0; j<users.lenght; j++){
+              /*  循环到这里就没有了 */
+              let dateI = users[i].time;
+              let dateJ = users[j].time;
+              console.log(dateI);
+              if(dateI-dateJ>0){
+                console.log('compare');
+                user.push(users[i]);
+              }
+            }
+          }
+          console.log('user',user);
+
+          res.locals.clueUser = user.map((data)=>{
             data.time = dateStyle(data.time);
             return data;
           });

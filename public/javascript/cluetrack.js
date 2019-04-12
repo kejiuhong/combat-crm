@@ -39,6 +39,7 @@ const Page = {
       success:function(res){
         if(res.code == 200){
           alert('最新修改保存成功！')
+          window.location.href='/admin/clue/list'
         }else{
           alert(res.message);
         }
@@ -103,13 +104,13 @@ const Page = {
 
     $.ajax({
       url:'/api/del/track',
-      type:'GET',
+      type:'POST',
       data:{id},
 
       success:function(res){
         if(res.code==200){
           alert(res.message);
-          window.location.href='/admin/clue/track';
+          window.location.reload();
         }else{
           alert(res.message);
         }
