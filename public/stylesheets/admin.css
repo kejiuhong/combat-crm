@@ -76,10 +76,7 @@ a{
   font-size: .28rem;
 }
 
-/*判断如果角色是销售，对人员管理导航不可见*/
-.unactive{
-  display:none;
-}
+
 
 /* 导航部分 end */
 
@@ -139,6 +136,11 @@ a{
   padding: .05rem;
   letter-spacing: .05rem;
   text-align: center;
+}
+
+/* 跟踪列表内表格抬头 */
+.headerTh{
+  position:relative;
 }
 
 /* 中间内容主体 */

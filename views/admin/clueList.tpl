@@ -23,7 +23,9 @@
     <thead>
       <tr>
         {% for item in headV %}
-        <th>{{ item }}</th>
+        <th class='headerTh'>
+          {{ item }}
+        </th>
         {% endfor %}
       </tr>
     </thead>
