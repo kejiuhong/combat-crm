@@ -22,8 +22,8 @@ const adminController = {
       return
     }
 
-    var telCheck = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if(tel.length !== 11 && !telCheck.test(tel) ){
+    var telCheck = /^[1][34578]\d{9}$/;
+    if(tel.length !== 11 || !(telCheck.test(tel)) ){
       console.log('no');
       res.json({
         code:0,

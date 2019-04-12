@@ -12,22 +12,42 @@ const userController = {
     let tel = req.body.tel;
     let password = req.body.password;
     let role = req.body.role;
-    let time = new Date();
+    let time = (new Date()).valueOf();
+    console.log(tel);
     // 判断用户信息，电话，密码是否填写，如果有一样未填写return
     if (!name || !tel || !password ||!role){
       res.json ({ code:0, message:'内容未添加完全'})
       return
     }
+
+    var telCheck = /^[1][34578]\d{9}$/;
+    if(tel.length !== 11 || !telCheck.test(tel) ){
+      // console.log('no');
+      res.json({
+        code:0,
+        message:'账号应为11位手机号！'
+      })
+      return
+    }
+
+    if(password.length < 6){
+      res.json({
+        code:0,
+        message:'密码需要大于6位数！'
+      })
+      return
+    }
+
     // console.log('req',req);
     try{
       const users = await User.insert({ 
         name, tel, password, role, time
       });
-      // console.log('users:',users);
       res.json({ 
         code: 200, 
         data: users
       })
+      console.log('users:',users);
 
     }catch(e){
       console.log(e)

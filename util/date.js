@@ -1,5 +1,5 @@
 const dateStyle = time => {
-  const date = new Date(time*1000);
+  const date = new Date(parseInt(time));
   const year = date.getFullYear();//获得年
   const month = date.getMonth()+1;//获得月份
   const day =date.getDate();//获得日

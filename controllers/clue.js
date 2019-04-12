@@ -7,7 +7,7 @@ const Url = require('url');
 
 const indexController = {
 
-  // 跟踪数据添加
+  // 落地页跟踪数据添加
   /*
    * 验证
    * 电话，密码不能为空
@@ -21,7 +21,7 @@ const indexController = {
     let urls = req.body.url;
     let source = Url.parse(urls,true).query.utm;
     let time = (new Date()).valueOf();
-    // console.log('timestamp',time);
+    console.log(tel);
 
     if (!tel || !name){
       res.json({
@@ -31,8 +31,8 @@ const indexController = {
       return
     }
 
-    var telCheck = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if(tel.length !== 11 && !telCheck.test(tel)){
+    var telCheck = /^[1][34578]\d{9}$/;
+    if(tel.length !== 11 || !(telCheck.test(tel))){
       res.json({
         code:0,
         message:'账号应为11位手机号！'
@@ -40,8 +40,8 @@ const indexController = {
       return
     }
 
-    
     try{
+
       const clueUser = await Clue.insert({name,tel,source,time});
       res.json({
         code:200,
@@ -59,7 +59,7 @@ const indexController = {
   // 跟踪数据添加 end
 
 
-  // 跟踪数据展示
+  // 跟踪列表页面数据展示
   
   clueShow:async function(req,res,next){
     // const role = res.locals.userIfo.role
@@ -70,23 +70,10 @@ const indexController = {
           let users = await Clue.all();
           console.log('users',users);
 
-          var user = [];
-
           // 根据最近创建排序
-          for(let i=0; i<users.length; i++){
-            console.log('arr',users[i]);
-
-            for(let j =0; j<users.lenght; j++){
-              /*  循环到这里就没有了 */
-              let dateI = users[i].time;
-              let dateJ = users[j].time;
-              console.log(dateI);
-              if(dateI-dateJ>0){
-                console.log('compare');
-                user.push(users[i]);
-              }
-            }
-          }
+          const user = users.sort((a,b)=>{
+            return b.time-a.time;
+          })
           console.log('user',user);
 
           res.locals.clueUser = user.map((data)=>{
@@ -109,31 +96,41 @@ const indexController = {
   
 
 
-  // 跟踪页面的编辑
+  // 跟踪编辑页面数据展示
   clueEdit:async function(req,res,next){
     let id = req.params.id;
     // console.log('edit',id);
 
     try{
-      // 跟踪页面用户信息
+
+      // 跟踪页面用户信息展示
       const clueIfo = await Clue.find({id});
       // console.log('clueIfo',clueIfo);
-      // 跟踪页面销售
-      const user_role = await User.find({role:'销售'});   
-      // console.log('userid',user_role);
-
-      // 跟踪页面跟踪进度
-      const user_tel = clueIfo[0].tel;
-      console.log('user_tel',{user_tel});
-      const trackIfo = await Track.find({user_tel});
-      // console.log('trackifo',trackIfo);
 
       // 将日期格式转化为 yyyy-mm-dd hh：mm：ss
       res.locals.clueUser = clueIfo.map((data) => {
         data.time = dateStyle(data.time);
         return data;
       });
+
+
+      // 跟踪页面销售选择项
+      const user_role = await User.find({role:'销售'});   
+      // console.log('userid',user_role);
       res.locals.userSale = user_role;
+
+
+      // 跟踪进度展示
+      const user_tel = clueIfo[0].tel;
+      // console.log('user_tel',{user_tel});
+
+      const trackIfos = await Track.find({user_tel});
+      // console.log('trackifo',trackIfo);
+
+      const trackIfo = trackIfos.sort((a,b)=>{
+        return b.time - a.time;
+      });
+
       res.locals.track = trackIfo.map((data)=>{
         data.time = dateStyle(data.time);
         return data;
@@ -160,7 +157,7 @@ const indexController = {
     let user_id = req.body.user_id;
     let remark = req.body.remark;
     let content = req.body.content;
-    let time = new Date();
+    let time = (new Date()).valueOf();
 
     try{
       const clueUser = await Clue.update(id,{status,user_id,remark,time});
@@ -186,7 +183,7 @@ const indexController = {
     let user_tel = req.body.tel;
     console.log('track',user_tel);
     let content = req.body.content;
-    let time = new Date();
+    let time = (new Date()).valueOf();
 
     try{
       const trackContent = await Track.insert({user_tel,content,time})

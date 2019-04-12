@@ -84,21 +84,15 @@
         {% endblock %}
       </div>
 
-      <!-- 左侧销售分配内容 -->
-      
-      <section class="main-content col-md-6 col-xs-12">
-        <form class="form-horizontal" >
-          {% block section %}
-          {% endblock %}
-        </form>
-
-      </section>
-      <!-- 左侧销售分配内容 end -->
-
-      <!-- 右侧跟踪线索内容 -->
-        {% block aside %}
+      <!-- 跟踪数据编辑展示页面 -->
+      {% if userIfo.role == '管理' %}
+        {% block admin %}
         {% endblock %}
-      <!-- 右侧跟踪线索内容 end -->
+      {% else %}
+        {% block sale %}
+        {% endblock %}
+      {% endif %}
+      <!-- 跟踪数据编辑展示页面 end -->
 
     </article>
     <!-- 主题内容部分 end -->

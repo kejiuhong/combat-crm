@@ -32,10 +32,12 @@
         <th>
           <a class="listBtn main-header-botton" href="/admin/user/edit/{{ item.id }}">编辑</a>
         </th>
+        {# 如果角色为管理列没有删除按钮 #}
         <th>
+          {% if item.role !== '管理' %}
           <button class="delete btn-danger" id="{{item.id}}">删除</button>
+        {% endif %}        
         </th>
-
       </tr>
       {% endfor %}
     </tbody>
