@@ -39,7 +39,7 @@
             </a>
           </li>
           <li>
-            <a class="logOut" href="/admin/login">
+            <a class="loginOut" href="/admin/login">
               退出
             </a>
           </li>
@@ -88,7 +88,7 @@
       {% if userIfo.role == '管理' %}
         {% block admin %}
         {% endblock %}
-      {% else %}
+      {% elif userIfo.role == '销售' %}
         {% block sale %}
         {% endblock %}
       {% endif %}

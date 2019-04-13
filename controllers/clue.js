@@ -21,7 +21,7 @@ const indexController = {
     let urls = req.body.url;
     let source = Url.parse(urls,true).query.utm;
     let time = (new Date()).valueOf();
-    console.log(tel);
+    // console.log(tel);
 
     if (!tel || !name){
       res.json({
@@ -68,20 +68,20 @@ const indexController = {
 
     try{
           let users = await Clue.all();
-          console.log('users',users);
+          // console.log('users',users);
 
           // 根据最近创建排序
           const user = users.sort((a,b)=>{
             return b.time-a.time;
           })
-          console.log('user',user);
+          // console.log('user',user);
 
           res.locals.clueUser = user.map((data)=>{
             data.time = dateStyle(data.time);
             return data;
           });
 
-      console.log('clueUser:',res.locals);
+      // console.log('clueUser:',res.locals);
       res.render('admin/clueList',res.lcoals);
       return
 
@@ -90,6 +90,7 @@ const indexController = {
       res.locals.error = e;
       res.render('error',res.lcoals);
     }
+    next();
   },
 
   // 跟踪数据展示 end
@@ -209,9 +210,9 @@ const indexController = {
     const id = req.body.id;
     try{
      const delIfo = await Track.del(id);
-     console.log('del',delIfo);
+     // console.log('del',delIfo);
       res.json({
-        code:0,
+        code:200,
         message:'删除成功！'
       })
     }catch(e){
@@ -221,9 +222,53 @@ const indexController = {
         message:'内部错误！'
       })
     }
-  }
+  },
 
   // 线索跟踪删除事件  end
+
+  // 跟踪列表页筛选功能
+
+  selectFilter:async function(req,res,next){
+    let status = req.body.status;
+    console.log('status:',status);
+    try{
+
+      res.redirect('/admin/clue/list/:status');
+      return
+    }catch(e){
+      console.log('selectE:',e);
+      res.json({
+        code:0,
+        message:'内部错误！'
+      })
+    }
+  },
+
+  selected:async function(req,res,next){
+    let status = req.query.id;
+    console.log('selectedSta', status);
+
+    try{
+
+      const clueList = await Clue.find({status});
+      console.log('select:',clueList);
+      res.locals.clueListFilter = clueList.map((data)=>{
+        data.time = dateStyle(data.time);
+        return data;
+      });
+      console.log('select:',res.locals);
+      res.redirect('admin/clueList', res.locals);
+
+    }catch(e){
+      console.log('selectedStaE',e);
+      res.json({
+        code:0,
+        message:'内部错误'
+      })
+    }
+  }
+
+  // 跟踪列表页筛选功能  end
 }
 
 module.exports = indexController;

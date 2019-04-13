@@ -102,24 +102,28 @@ const Page = {
     console.log(e.target.id);
     let id = e.target.id;
 
-    $.ajax({
-      url:'/api/del/track',
-      type:'POST',
-      data:{id},
+    if(window.confirm('确定删除吗？')){
+      $.ajax({
+        url:'/api/del/track',
+        type:'POST',
+        data:{id},
 
-      success:function(res){
-        if(res.code==200){
-          alert(res.message);
-          window.location.reload();
-        }else{
-          alert(res.message);
+        success:function(res){
+          if(res.code==200){
+            window.location.reload();
+            // alert(res.message);
+          }else{
+            alert(res.message);
+          }
+        },
+
+        errer:function(err){
+          console.log(err);
         }
-      },
-
-      errer:function(err){
-        console.log(err);
-      }
-    })
+      })
+    }else{
+      alert('删除失败！');
+    }
   }
 
   // 删除线索跟踪情况事件 end

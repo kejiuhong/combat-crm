@@ -10,6 +10,8 @@ a{
   background: #a5b7bf47;
   padding-bottom: .6rem;
 }
+
+
 /*  导航样式 */
 .nav {
   position:relative;
@@ -41,6 +43,9 @@ a{
   text-overflow:ellipsis;
   overflow:hidden;
 }
+
+
+
 /* pc端右侧用户名样式 */
 .nav-user{
   float:right;
@@ -48,10 +53,14 @@ a{
   line-height:1rem;
   font-size:.28rem;
 }
+
+
 /*删除移动端 右侧下拉倒航*/
 .navbar-inverse .navbar-toggle{
   border:0px;
 }
+
+
 /* 移动端下拉导航样式 */
 .nav-botton{
   float:right;
@@ -92,6 +101,8 @@ a{
   margin-left:0;
   margin-right:0;
 }
+
+
 /* 侧边栏 */
 .sidebar{
   flex: 1;
@@ -109,6 +120,9 @@ a{
   cursor:pointer;
 }
 /* 侧边栏 end */
+
+
+
 
 /* 中间内容部分 */
 .main{
@@ -129,6 +143,9 @@ a{
   text-align:right;
   text-decoration-line:underline;
 }
+
+
+
 /* 列表内删除按钮 */
 .btn-danger{
   border-radius: .1rem;
@@ -138,10 +155,15 @@ a{
   text-align: center;
 }
 
-/* 跟踪列表内表格抬头 */
-.headerTh{
-  position:relative;
+
+
+/* 跟踪列表内表格抬头 筛选按钮*/
+
+.th-select{
+  text-align:center;
+  text-align-last:center;
 }
+
 
 /* 中间内容主体 */
 .main-content{
@@ -161,6 +183,7 @@ a{
 
 /* 跟踪页面 */
 .clue-text{
+  color:#929191;
   margin-left:.1rem;
 }
 .form-textarea{
