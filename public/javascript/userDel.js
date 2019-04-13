@@ -13,27 +13,33 @@ const Del = {
   },
 
   del:function(e){
-    console.log(e.target.id);
-    let id = e.target.id;
 
-    $.ajax({
-      url:'/api/del/user',
-      type:'POST',
-      data:{id},
+    if(window.confirm('确定要删除吗？')){
 
-      success:function(res){
-        if(res.code==200){
-          alert(res.message);
-          window.location.reload();
-        }else{
-          alert(res.message);
+      console.log(e.target.id);
+      let id = e.target.id;
+
+      $.ajax({
+        url:'/api/del/user',
+        type:'POST',
+        data:{id},
+
+        success:function(res){
+          if(res.code==200){
+            // alert(res.message);
+            window.location.reload(); //刷新页面
+          }else{
+            alert(res.message);
+          }
+        },
+
+        errer:function(err){
+          console.log(err);
         }
-      },
-
-      errer:function(err){
-        console.log(err);
-      }
-    })
+      })
+    }else{
+      alert('删除失败！');
+    }
   }
 }
 

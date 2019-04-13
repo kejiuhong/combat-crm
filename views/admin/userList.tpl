@@ -10,16 +10,17 @@
 {% endblock %}
 
 
-{% block main %}
-  {% set headV = ['姓名', '电话', '角色', '创建时间', '操作'] %}
 
+{% block main %}
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
       <tr>
-        {% for item in headV %}
-        <th>{{ item }}</th>
-        {% endfor %}
+        <th>姓名</th>
+        <th>电话</th>
+        <th>角色</th>
+        <th>创建时间</th>
+        <th>操作</th>
       </tr>
     </thead>
     <tbody>
