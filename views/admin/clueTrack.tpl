@@ -67,7 +67,9 @@
 
 
         {{ forms.formClue('备注') }}
-        {{ forms.formText(clueUser[0].remark,class='remark') }}
+        <div class="form-group">
+          <textarea class="form-textarea remark" row='10' cols='50' placeholder="备注">{{clueUser[0].remark}}</textarea>
+        </div>
         {{ forms.formBtn('保存',class='save') }}
       </form>
     </section>
